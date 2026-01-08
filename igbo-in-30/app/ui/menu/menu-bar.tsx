@@ -8,6 +8,7 @@ export default function MenuBar() {
         className="mb-2 flex h-20 items-end justify-start rounded-md bg-indigo-700 p-4 md:h-40"
         href="/"
       >
+        <p className="text-white text-2xl">IgboIn30</p>
       </Link>
 
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
