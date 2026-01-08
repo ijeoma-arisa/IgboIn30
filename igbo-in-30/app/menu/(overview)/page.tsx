@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Movies/TV Shows',
+  title: 'Home',
 };
 
 export default function Page() {
-  return <p className="text-black">Movies/TV Shows</p>
+  return <p className="text-black">Home</p>
 }
