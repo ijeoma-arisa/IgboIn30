@@ -1,3 +1,3 @@
 export default function Page() {
-  return <p>Menu</p>
+  return <p className="text-black">Home</p>
 }
