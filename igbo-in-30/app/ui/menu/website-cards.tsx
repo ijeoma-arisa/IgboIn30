@@ -1,12 +1,15 @@
 import { Website } from '@/app/lib/definitions';
 import { websites } from '@/app/lib/data';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default async function WebsiteCardWrapper() {
   return (
     <>
       {websites.map((website) => {
         return (
-          <WebsiteCard 
+          <WebsiteCard
+            key={website.link}
             title={website.title} 
             description={website.description} 
             link={website.link} 
@@ -25,17 +28,33 @@ export function WebsiteCard({
   imageSrc,
 }: Website ) {
   return (
-    <div className="rounded-xl bg-gray-50 p-2 shadow-sm">
-      <div className="flex p-4">
-        <p>{imageSrc}</p>
-        <h3 className="ml-2 text-sm font-medium">{title}</h3>
+    <div className="rounded-xl bg-indigo-700 p-2 shadow-sm text-center hover:bg-purple-200 hover:text-indigo-700 ">
+      <div className="flex flex-col p-4">
+        <div className="flex items-center">
+
+        </div>
+        <h3 className="ml-2 text-xl font-bold py-2">
+          {title}
+        </h3>
+        <p className="text-md text-sm italic">{description}</p>
       </div>
       <div
-        className="
-          truncate rounded-xl bg-white px-4 py-8 text-center text-2xl"
+        className="relative rounded-xl bg-white px-4 py-8 text-2xl"
       >
-        <p>{description}</p>
-        <p>{link}</p>
+        <Link
+          key={link}
+          href={link}
+          className="flex flex-col h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 text-black p-3 text-sm font-medium md:flex-none md:justify-center md:p-2 md:px-3"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src={`/menu/websites/${imageSrc}`}
+            alt={`${title} logo`}
+            className="object-fit"
+            fill={true}
+          />
+        </Link>
       </div>
     </div>
   );
