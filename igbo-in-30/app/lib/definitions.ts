@@ -4,3 +4,8 @@ export type Website = {
   link: string;
   imageSrc: string;
 }
+
+export type Embedding = {
+  name: string;
+  embedText: string;
+}
