@@ -66,25 +66,17 @@ export const instagramPages = [
   },
 ];
 
-export const youtubePages = [
+export const youtubePlaylists = [
   {
     name: 'Igbo Learning Resources - @eejawma',
     embedText: '<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=Pm_1aTkjAKCeOjFi&amp;list=PLIcprcNO7gwEoev6mBMHrvrCDxtZL-jBH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
   },
   {
-    name: 'Learn Igbo Language - IgboVillageSquare',
-    embedText: '<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=MCBen1Illml0Nu_q&amp;list=PLncBQB8MQI2bo1b-oFeyEOW4QHOinzYHh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+    name: 'Beginner Igbo',
+    embedText: '<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=Z1kwJeQsguPXAGqY&amp;list=PLIcprcNO7gwGDOc2woFJs-oLWf73EzcMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
   },
   {
-    name: 'Igbo Phrases - Learn Igbo',
-    embedText: '<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=WU4cXNXakjmPC6MA&amp;list=PLtIIVgC7Q8mAH9HFQJIEQ02rd7ndExDc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  },
-  {
-    name: '500 Igbo Words (1/2)',
-    embedText: '<iframe width="560" height="315" src="https://www.youtube.com/embed/yCuZTDdR9IA?si=CWqSezDkwfG62daE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
-  },
-  {
-    name: '500 Igbo Words (2/2)',
-    embedText: '<iframe width="560" height="315" src="https://www.youtube.com/embed/BIfwjuo-GFU?si=OPf9DSmAxC9te94n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+    name: 'Intermediate Igbo',
+    embedText: '<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=rvH-wvbgLK7v9yb7&amp;list=PLIcprcNO7gwHTG70y4pf3O6sRO908OaXQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
   },
 ];
