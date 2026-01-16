@@ -11,7 +11,7 @@ export default function Page() {
       <h1 className="text-black text-center mb-4 text-xl md:text-3xl font-bold">
         Music
       </h1>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center gap-6">
         <MusicPlaylistWrapper />
       </div>
     </main>
