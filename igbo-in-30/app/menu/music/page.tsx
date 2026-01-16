@@ -1,9 +1,19 @@
 import { Metadata } from 'next';
+import MusicPlaylistWrapper from '@/app/ui/menu/music-cards';
 
 export const metadata: Metadata = {
   title: 'Music',
 };
 
 export default function Page() {
-  return <p className="text-black">Music</p>
+  return (
+    <main>
+      <h1 className="text-black text-center mb-4 text-xl md:text-3xl font-bold">
+        Music
+      </h1>
+      <div className="flex flex-col items-center">
+        <MusicPlaylistWrapper />
+      </div>
+    </main>
+  );
 }
