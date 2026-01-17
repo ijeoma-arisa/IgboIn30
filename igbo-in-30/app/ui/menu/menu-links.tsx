@@ -17,7 +17,7 @@ const links = [
   { name: 'Home', href: '/menu', icon: HomeIcon },
   { name: 'YouTube Lessons', href: '/menu/youtube-lessons', icon: PlayCircleIcon},
   { name: 'Websites', href:'/menu/websites', icon: GlobeAltIcon },
-  { name: 'Movies/TV Shows', href:'/menu/movies-and-tv-shows', icon: TvIcon },
+  { name: 'Videos', href:'/menu/videos', icon: TvIcon },
   { name: 'Music', href:'/menu/music', icon: MusicalNoteIcon },
   { name: 'Social Media', href: '/menu/social-media', icon: CameraIcon },
 ];

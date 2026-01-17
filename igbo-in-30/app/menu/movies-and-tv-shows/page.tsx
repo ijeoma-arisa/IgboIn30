@@ -1,9 +1,0 @@
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Movies/TV Shows',
-};
-
-export default function Page() {
-  return <p className="text-black">Movies/TV Shows</p>
-}
