@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import Calendar from '@/app/ui/menu/calendar';
+// import Calendar from '@/app/ui/menu/calendar';
+import Calendar from '@/app/components/Calendar';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -7,14 +8,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main>
-      <h1 className="text-black text-center mb-4 text-xl md:text-3xl font-bold">
+    <main className="text-black">
+      <h1 className="text-center mb-4 text-xl md:text-3xl font-bold">
         {metadata.title?.toString()}
       </h1>
-      <div className="flex flex-col gap-6 text-indigo-700 font-bold text-xl">
-        <p>Progress</p>
-        <Calendar />
-      </div>
+      <Calendar streakDays={[2, 4, 6]}/>
     </main>
   );
 }
