@@ -47,14 +47,20 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
   }
 
   return (
-    <section className="w-full max-w-sm border rounded-lg">
+    <section className="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
       {/* Month Header */}
-      <div className="flex flex-col items-center mb-2 text-gray-500">
-        <h2 className="mb-2 text-lg font-semibold text-black">
+      <header className="relative mb-1 flex items-center justify-center">
+        <h2 className="text-lg font-semibold text-black">
           {monthLabel}
         </h2>
-        <p className="text-xs">Today is highlighted</p>
-      </div>
+        <div className="absolute right-0 rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">
+            🔥 0
+        </div>
+      </header>
+      
+      <p className="mb-3 text-center text-xs text-gray-500">
+        Today is highlighted
+      </p>
 
       {/* Weekday Header */}
       <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-500">
@@ -68,22 +74,29 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
       <div className="mt-3 grid grid-cols-7 gap-2">
         {cells.map((cell, index) => {
           
+          // Make blank cells gray
           if (cell.type === 'blank') {
             return <div key={`blank-${index}`} className="h-9 rounded-md border border-gray-200 bg-gray-100" aria-hidden="true" />
           }
           
           const isToday = cell.dayNumber === todayDayNumber;
+          const isStreak = streakDays.includes(cell.dayNumber);
 
           return (
             <div 
               key={`day-${cell.dayNumber}`}
               className = {clsx(
-                'flex h-9 items-center justify-center rounded-md border text-sm',
+                'relative flex h-9 items-center justify-center rounded-md border text-sm',
                 isToday
-                ? 'border-blue-600 bg-blue-50 font-semibold text-blue-700'
-                : 'border-gray-300',
+                  ? 'border-blue-600 bg-blue-50 font-semibold text-blue-700' // Make Today cell blue
+                  : isStreak
+                      ? 'border-emerald-600 bg-emerald-50 text-emerald-800' // Make Streak cell green
+                      : 'border-gray-300',                                  // Make Day cell light gray 
               )}
             >
+              {isStreak && !isToday && (
+                <span className="absolute bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-emerald-600" />
+              )}
               {cell.dayNumber}
             </div>
           );

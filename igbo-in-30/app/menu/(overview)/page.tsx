@@ -12,7 +12,7 @@ export default function Page() {
       <h1 className="text-center mb-4 text-xl md:text-3xl font-bold">
         {metadata.title?.toString()}
       </h1>
-      <Calendar streakDays={[2, 4, 6]}/>
+      <Calendar streakDays={[2, 4, 6, 10, 11]}/>
     </main>
   );
 }
