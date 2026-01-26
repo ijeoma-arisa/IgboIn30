@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { useState } from 'react';
 
 interface CalendarProps {
   streakDays?: number[];
@@ -14,16 +15,34 @@ function getDaysInMonth(year: number, monthIndex: number){
 
 export default function Calendar({ streakDays = [] }: CalendarProps) {
   const today = new Date();
-  const todayDayNumber = today.getDate();
+  const [displayMonth, setDisplayMonth] = useState(() => 
+    new Date(today.getFullYear(), today.getMonth(), 1)
+    );
+    
+  const monthLabel = displayMonth.toLocaleString('en-US', { month: 'long', year: 'numeric' });
 
-  const monthLabel = today.toLocaleString('en-US', { month: 'long', year: 'numeric' });
+  const year = displayMonth.getFullYear();
+  const monthIndex = displayMonth.getMonth();           // Jan - Dec: 0 - 11
 
-  const year = today.getFullYear();
-  const monthIndex = today.getMonth();                  // Jan - Dec: 0 - 11
 
   const firstOfMonth = new Date(year, monthIndex, 1);   
   const startWeekday = firstOfMonth.getDay();           // Sun - Sat: 0 - 6
   const daysInMonth = getDaysInMonth(year, monthIndex);
+
+  function goToPrevMonth() {
+    setDisplayMonth((currMonth) => new Date(currMonth.getFullYear(), currMonth.getMonth() - 1, 1));
+  }
+  
+  function goToNextMonth() {
+    setDisplayMonth((currMonth) => new Date(currMonth.getFullYear(), currMonth.getMonth() + 1, 1));
+  }
+  
+  function goToThisMonth(){
+    setDisplayMonth(new Date(today.getFullYear(), today.getMonth(), 1));
+  }
+  
+  const isViewingThisMonth = 
+    monthIndex === today.getMonth() && year === today.getFullYear();
 
   const cells: Array<{ type: 'blank' } | { type: 'day'; dayNumber: number }> = [];
 
@@ -48,24 +67,60 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
 
   return (
     <section className="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-      {/* Month Header */}
       <header className="relative mb-1 flex items-center justify-center">
+        {/* Previous Button */}
+        <button
+          type="button"
+          onClick={goToPrevMonth}
+          className="absolute left-0 rounded-md px-2 py-1 text-sm text-gray-600 transition-colors hover:bg-gray-100"
+          aria-label="Previous month"
+          >
+          &#8249;
+        </button>
+
+        {/* Month */}
         <h2 className="text-lg font-semibold text-black">
           {monthLabel}
         </h2>
+
+        {/* Streak */}
         <div className="absolute right-0 rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">
             🔥 0
+          {/* Next Button */}
+          <button
+            type="button"
+            onClick={goToNextMonth}
+            className="rounded-md px-2 py-1 text-sm text-gray-600 transition-colors hover:bg-gray-100"
+            aria-label="Next month"
+          >
+            &#8250;
+          </button>
         </div>
+
       </header>
       
-      <p className="mb-3 text-center text-xs text-gray-500">
-        Today is highlighted
-      </p>
+      {isViewingThisMonth ? (
+        <p className="mb-3 text-center text-xs text-gray-500">
+          Today is highlighted
+        </p>
+      ) :
+      <div className="mb-3 flex justify-center">
+        <button
+          type="button"
+          onClick={goToThisMonth}
+          className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700 transition-colors hover:bg-gray-200"
+          aria-label="Current Month"
+        >
+          Jump to Current Month
+        </button>  
+      </div>}
 
       {/* Weekday Header */}
       <div className="grid grid-cols-7 text-center text-xs font-medium text-gray-500">
         {WEEKDAYS.map((day) => (
-          <div key={day}>{day}</div>
+          <div key={day} className="py-1">
+            {day}
+          </div>
         ))}
       </div>
 
@@ -79,14 +134,25 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
             return <div key={`blank-${index}`} className="h-9 rounded-md border border-gray-200 bg-gray-100" aria-hidden="true" />
           }
           
-          const isToday = cell.dayNumber === todayDayNumber;
+          const isToday = isViewingThisMonth && cell.dayNumber === today.getDate();
           const isStreak = streakDays.includes(cell.dayNumber);
+
+          const dateForCell = new Date(year, monthIndex, cell.dayNumber);
+          const ariaLabel = dateForCell.toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          });
 
           return (
             <div 
               key={`day-${cell.dayNumber}`}
+              tabIndex={0}
+              aria-label={ariaLabel}
               className = {clsx(
-                'relative flex h-9 items-center justify-center rounded-md border text-sm',
+                'relative flex h-9 items-center justify-center rounded-md border text-sm transition-colors',
+                'hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500',
                 isToday
                   ? 'border-blue-600 bg-blue-50 font-semibold text-blue-700' // Make Today cell blue
                   : isStreak
