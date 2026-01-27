@@ -13,21 +13,44 @@ function getDaysInMonth(year: number, monthIndex: number){
   return new Date(year, monthIndex + 1, 0).getDate();
 } 
 
+function generateCalenderCells(year: number, monthIndex: number){
+  const cells: Array<{ type: 'blank' } | { type: 'day'; dayNumber: number }> = [];
+
+  const firstOfMonth = new Date(year, monthIndex, 1);   
+  const startWeekday = firstOfMonth.getDay();             // Sun - Sat: 0 - 6
+  const daysInMonth = getDaysInMonth(year, monthIndex);
+  
+  // Generate blank days in first week
+  for (let i = 0; i < startWeekday; i++) {
+    cells.push({ type: 'blank' });
+  }
+
+  // Generate day cells
+  for (let dayNumber = 1; dayNumber <= daysInMonth; dayNumber++) {
+    cells.push({ type: 'day', dayNumber });
+  }
+
+  // Generate blank days in last week
+  const remainder = cells.length % 7;
+  if (remainder !== 0){
+    const remainingDaysInLastWeek = 7 - remainder;
+    for (let i = 0; i < remainingDaysInLastWeek; i++){
+      cells.push({ type: 'blank' });
+    }
+  }
+
+  return cells;
+}
+
 export default function Calendar({ streakDays = [] }: CalendarProps) {
   const today = new Date();
-  const [displayMonth, setDisplayMonth] = useState(() => 
-    new Date(today.getFullYear(), today.getMonth(), 1)
-    );
+  const [displayMonth, setDisplayMonth] = useState(() => new Date(today.getFullYear(), today.getMonth(), 1));
     
   const monthLabel = displayMonth.toLocaleString('en-US', { month: 'long', year: 'numeric' });
 
   const year = displayMonth.getFullYear();
-  const monthIndex = displayMonth.getMonth();           // Jan - Dec: 0 - 11
-
-
-  const firstOfMonth = new Date(year, monthIndex, 1);   
-  const startWeekday = firstOfMonth.getDay();           // Sun - Sat: 0 - 6
-  const daysInMonth = getDaysInMonth(year, monthIndex);
+  const monthIndex = displayMonth.getMonth();
+  const calendarCells = generateCalenderCells(year, monthIndex);
 
   function goToPrevMonth() {
     setDisplayMonth((currMonth) => new Date(currMonth.getFullYear(), currMonth.getMonth() - 1, 1));
@@ -43,27 +66,6 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
   
   const isViewingThisMonth = 
     monthIndex === today.getMonth() && year === today.getFullYear();
-
-  const cells: Array<{ type: 'blank' } | { type: 'day'; dayNumber: number }> = [];
-
-  // Label leading days as blank
-  for (let i = 0; i < startWeekday; i++) {
-    cells.push({ type: 'blank' });
-  }
-
-  // Label days
-  for (let dayNumber = 1; dayNumber <= daysInMonth; dayNumber++) {
-    cells.push({ type: 'day', dayNumber });
-  }
-
-  // Label remaining days blank
-  const remainder = cells.length % 7;
-  if (remainder !== 0){
-    const remainingDaysInLastWeek = 7 - remainder;
-    for (let i = 0; i < remainingDaysInLastWeek; i++){
-      cells.push({ type: 'blank' });
-    }
-  }
 
   return (
     <section className="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
@@ -86,6 +88,7 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
         {/* Streak */}
         <div className="absolute right-0 rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">
             🔥 0
+
           {/* Next Button */}
           <button
             type="button"
@@ -96,12 +99,12 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
             &#8250;
           </button>
         </div>
-
       </header>
       
+      {/* Today helper text */}
       {isViewingThisMonth ? (
         <p className="mb-3 text-center text-xs text-gray-500">
-          Today is highlighted
+          Today is highlighted in <span className="px-1 bg-blue-50 text-blue-700">blue</span>
         </p>
       ) :
       <div className="mb-3 flex justify-center">
@@ -127,7 +130,7 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
       
       {/* Calendar Grid */}
       <div className="mt-3 grid grid-cols-7 gap-2">
-        {cells.map((cell, index) => {
+        {calendarCells.map((cell, index) => {
           
           // Make blank cells gray
           if (cell.type === 'blank') {
