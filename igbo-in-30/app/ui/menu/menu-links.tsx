@@ -24,6 +24,8 @@ const links = [
   { name: 'Social Media', href: '/menu/social-media', icon: CameraIcon },
 ];
 
+export const studyOptions = links.slice(2).map((link) => link.name);
+
 export default function MenuLinks() {
   const pathname = usePathname();
 

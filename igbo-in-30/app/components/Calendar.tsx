@@ -52,6 +52,9 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
   const monthIndex = displayMonth.getMonth();
   const calendarCells = generateCalenderCells(year, monthIndex);
 
+  const isViewingThisMonth = 
+    monthIndex === today.getMonth() && year === today.getFullYear();
+
   function goToPrevMonth() {
     setDisplayMonth((currMonth) => new Date(currMonth.getFullYear(), currMonth.getMonth() - 1, 1));
   }
@@ -64,9 +67,6 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
     setDisplayMonth(new Date(today.getFullYear(), today.getMonth(), 1));
   }
   
-  const isViewingThisMonth = 
-    monthIndex === today.getMonth() && year === today.getFullYear();
-
   return (
     <section className="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
       <header className="relative mb-1 flex items-center justify-center">
@@ -101,7 +101,7 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
         </div>
       </header>
       
-      {/* Today helper text */}
+      {/*Display Today text or 'Jump to Current month' button */}
       {isViewingThisMonth ? (
         <p className="mb-3 text-center text-xs text-gray-500">
           Today is highlighted in <span className="px-1 bg-blue-50 text-blue-700">blue</span>
@@ -127,7 +127,6 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
         ))}
       </div>
 
-      
       {/* Calendar Grid */}
       <div className="mt-3 grid grid-cols-7 gap-2">
         {calendarCells.map((cell, index) => {
