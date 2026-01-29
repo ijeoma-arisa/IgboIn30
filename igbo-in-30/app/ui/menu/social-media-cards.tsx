@@ -1,5 +1,5 @@
-import { Embedding } from '@/app/lib/definitions';
-import { instagramPages } from '@/app/lib/data';
+import { Embedding } from '@/lib/definitions';
+import { instagramPages } from '@/lib/data/social-media-data';
 import DOMPurify from 'isomorphic-dompurify';
 import parse from 'html-react-parser';
 

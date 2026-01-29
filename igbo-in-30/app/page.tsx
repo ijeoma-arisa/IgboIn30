@@ -1,21 +1,31 @@
 import Image from "next/image";
+import { studyOptions } from '@/lib/data/menu-links-data';
 
 export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-purple-100 font-sans">
-      <main className="flex min-h-full w-full max-w-3xl rounded-xl flex-col items-center justify-between py-32 px-16 bg-white">
+      <main className="flex min-h-full w-full max-w-3xl rounded-xl flex-col items-center justify-between py-32 px-16 bg-white border border-black">
         {/* Temporary Logo */}
-        <div
-          className="flex justify-center mb-4 px-20 py-4 rounded-md bg-indigo-700 "
-        >
-          <p className="text-white text-3xl">IgboIn30</p>
+        <div className="flex justify-center min-w-1/2 mb-6 px-20 py-6 rounded-md bg-indigo-700">
+          <p className="text-white text-4xl font-semibold">IgboIn30</p>
         </div>
 
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black">
-            To get started, edit the page.tsx file.
+        <div className="flex flex-col items-center gap-10 text-center">
+          {/* Tagline */}
+          <h1 className="max-w-sm text-3xl font-semibold text-black">
+            Learn Igbo in 30 minutes every day
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600">
+
+          <div className="grid grid-cols-5 gap-6 border border-black">
+            {studyOptions.map((studyOption) => (
+                <div key={studyOption}>
+                  {studyOption}
+                </div>
+              ))
+            }
+          </div>
+          
+          <p className="max-w-md text-lg text-zinc-600 border">
             Looking for a starting point or more instructions? Head over to{" "}
             <a
               href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"

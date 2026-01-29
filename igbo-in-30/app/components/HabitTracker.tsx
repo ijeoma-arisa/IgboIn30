@@ -1,6 +1,6 @@
 'use client';
 
-import { studyOptions } from '@/app/ui/menu/menu-links';
+import { studyOptions } from '@/lib/data/menu-links-data';
 import clsx from 'clsx';
 
 const OPTIONS = ['YouTube Lessons']
