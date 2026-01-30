@@ -1,6 +1,5 @@
 import { Website } from '@/lib/definitions';
 import { websites } from '@/lib/data/website-data';
-import Link from 'next/link';
 import Image from 'next/image';
 
 export default async function WebsiteCardWrapper() {
@@ -41,7 +40,7 @@ export function WebsiteCard({
       <div
         className="relative rounded-xl bg-white px-4 py-8 text-2xl"
       >
-        <Link
+        <a
           key={link}
           href={link}
           className="flex flex-col h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 text-black p-3 text-sm font-medium md:flex-none md:justify-center md:p-2 md:px-3"
@@ -54,7 +53,7 @@ export function WebsiteCard({
             className="object-fit"
             fill={true}
           />
-        </Link>
+        </a>
       </div>
     </div>
   );
