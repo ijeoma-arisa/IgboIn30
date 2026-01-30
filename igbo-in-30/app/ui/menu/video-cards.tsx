@@ -1,5 +1,5 @@
-import { Embedding } from '@/app/lib/definitions';
-import { videoPlaylists} from '@/app/lib/data';
+import { Embedding } from '@/lib/definitions';
+import { videoPlaylists} from '@/lib/data/video-data';
 import parse from 'html-react-parser';
 
 export default async function VideoCardWrapper() {

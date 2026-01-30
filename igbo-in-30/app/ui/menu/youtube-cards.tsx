@@ -1,5 +1,5 @@
-import { Embedding } from '@/app/lib/definitions';
-import { youtubePlaylists} from '@/app/lib/data';
+import { Embedding } from '@/lib/definitions';
+import { youtubePlaylists} from '@/lib/data/youtube-lesson-data';
 import parse from 'html-react-parser';
 
 export default async function YouTubeCardWrapper() {

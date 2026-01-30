@@ -1,5 +1,5 @@
-import { Embedding } from '@/app/lib/definitions';
-import { musicPlaylists } from '@/app/lib/data';
+import { Embedding } from '@/lib/definitions';
+import { musicPlaylists } from '@/lib/data/music-data';
 import parse from 'html-react-parser';
 
 
