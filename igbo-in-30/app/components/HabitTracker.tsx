@@ -4,6 +4,7 @@ import { studyLinks, studyOptions } from '@/lib/data/menu-links-data';
 import { useState } from 'react';
 import clsx from 'clsx';
 
+
 export default function HabitTracker(){
   
   const [selectedOption, setSelectedOption] = useState<typeof studyOptions[number]>(studyOptions[0]);
@@ -14,7 +15,7 @@ export default function HabitTracker(){
   }
   
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-2xl rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+    <form onSubmit={handleSubmit} className="flex flex-col max-w-2xl rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
       <header className="mb-1 flex flex-col justify-center items-center">
         {/* Title */}
         <h2 className="text-lg font-semibold">

@@ -2,9 +2,12 @@
 
 import clsx from 'clsx';
 import { useState } from 'react';
+import { HabitMap } from '@/lib/definitions';
 
 interface CalendarProps {
   streakDays?: number[];
+  habitEntries: HabitMap;
+  onSelectDate: (date: string | null) => void;
 }
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'] as const;
@@ -42,7 +45,11 @@ function generateCalenderCells(year: number, monthIndex: number){
   return cells;
 }
 
-export default function Calendar({ streakDays = [] }: CalendarProps) {
+export default function Calendar({ 
+  streakDays = [],
+  habitEntries,
+  onSelectDate,
+}: CalendarProps) {
   const today = new Date();
   const [displayMonth, setDisplayMonth] = useState(() => new Date(today.getFullYear(), today.getMonth(), 1));
     
@@ -68,7 +75,7 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
   }
   
   return (
-    <section className="w-full max-w-sm rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+    <section className="max-w-full rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
       <header className="relative mb-1 flex items-center justify-center">
         {/* Previous Button */}
         <button
@@ -133,7 +140,13 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
           
           // Make blank cells gray
           if (cell.type === 'blank') {
-            return <div key={`blank-${index}`} className="h-9 rounded-md border border-gray-200 bg-gray-100" aria-hidden="true" />
+            return ( 
+              <div 
+                key={`blank-${index}`} 
+                className="h-9 rounded-md border border-gray-200 bg-gray-100" 
+                aria-hidden="true" 
+              />
+            )
           }
           
           const isToday = isViewingThisMonth && cell.dayNumber === today.getDate();
@@ -148,8 +161,9 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
           });
 
           return (
-            <div 
+            <button 
               key={`day-${cell.dayNumber}`}
+              // onClick={() => onSelectDate()}
               tabIndex={0}
               aria-label={ariaLabel}
               className = {clsx(
@@ -166,7 +180,7 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
                 <span className="absolute bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-emerald-600" />
               )}
               {cell.dayNumber}
-            </div>
+            </button>
           );
         })}
       </div>
@@ -175,7 +189,6 @@ export default function Calendar({ streakDays = [] }: CalendarProps) {
       <p className="text-sm text-gray-500 mt-2">
         Streak days: {streakDays.join(', ') || 'none yet'}
       </p>
-
     </section>
   );
 }
