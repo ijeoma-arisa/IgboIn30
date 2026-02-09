@@ -1,39 +1,59 @@
 'use client';
 
-import { studyOptions } from '@/lib/data/menu-links-data';
+import { studyLinks, studyOptions } from '@/lib/data/menu-links-data';
+import { useState } from 'react';
 import clsx from 'clsx';
 
-const OPTIONS = ['YouTube Lessons']
+
 export default function HabitTracker(){
+  
+  const [selectedOption, setSelectedOption] = useState<typeof studyOptions[number]>(studyOptions[0]);
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    console.log("Submitted!");
+  }
+  
   return (
-    <section className="flex flex-col w-full max-w-2xl rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+    <form onSubmit={handleSubmit} className="flex flex-col max-w-2xl rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
       <header className="mb-1 flex flex-col justify-center items-center">
         {/* Title */}
         <h2 className="text-lg font-semibold">
           Habit Tracker
         </h2>
-
-        {/* Question */}
-        <div className="mb-2 text-md text-center">
-          <p> What did you learn today? </p>
-          <p> (Gịnị ka ị mụtara taa?) </p>
-        </div>
       </header>
 
-       {/* Options */}
-       <div className="grid grid-cols-5 text-center mb-4">
-        { studyOptions.map((studyOption) => (
-          <div key={studyOption}>
-            {studyOption}
+      {/* Options */}
+      <label>
+          {/* Question */}
+          <div className="mb-2 text-md text-center">
+            <p> What did you learn today? </p>
+            <p> (Gịnị ka ị mụtara taa?) </p>
           </div>
-        ))}
-       </div>
+        <select
+          value={selectedOption}
+          onChange={(e) => setSelectedOption(e.target.value as typeof selectedOption)}
+          className=""
+        >
+          {studyOptions.map((studyOption) => {
+            return (
+              <option 
+                key={studyOption}
+                value={studyOption}
+                className="flex gap-2"
+              >
+                {studyOption}
+              </option>
+              );
+          })}
+        </select>
+      </label>
 
       {/* Notes */}
-       <textarea 
+      <textarea 
           className="w-full h-full p-2 resize-none border rounded-md border-gray-500"
           placeholder="Enter Notes here"
-       />
+      />
 
       {/* Save button */}
       <div className="mt-2 flex justify-end">
@@ -41,6 +61,6 @@ export default function HabitTracker(){
           Save
         </button>
       </div>
-    </section>
+    </form>
   );
 }
