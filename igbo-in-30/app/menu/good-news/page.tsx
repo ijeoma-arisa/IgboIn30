@@ -50,7 +50,14 @@ export default function Page(){
       <h1 className="font-bold text-xl mt-4">
         A Prayer to Accept Jesus Christ as Lord and Savior:
       </h1>
+     
       <Card className="w-full min-h-20 justify-center pl-6">
+        <p className="font-bold italic text-center mt-2">
+          "If you declare with your mouth, “Jesus is Lord,” and believe in your heart that God raised him from the dead, you will be saved." (Romans 10:9 NIV)
+        </p>
+
+        <hr className="text-gray-500 mt-4 mb-4" />
+        
         <p> Dear God,</p>
         
         <br></br>
@@ -64,7 +71,7 @@ export default function Page(){
         <p> I confess with my mouth that Jesus Christ is Lord of my life. </p>
         
         <br></br>
-        <p> I accept your gift of salvation, Lord. Please be with me as I take this new step with You. Help me to be obedient to Your will for my life. </p>
+        <p> I accept your gift of salvation and eternal life with you, Lord. Please be with me as I take this new step with You. Help me to be obedient to Your will for my life. </p>
         
         <br></br>
         <p> Thank you for being a loving and holy Father. </p>
@@ -80,11 +87,6 @@ export default function Page(){
       <Card className="w-full min-h-20 justify-center pl-6 items-center font-bold">
         Welcome Child of God! I'm so glad you're here
       </Card>
-
-      <Card className="w-full min-h-20 justify-center pl-6 items-center font-bold">
-        Here are some Christian Igbo resources 
-      </Card>
-
 
       </div>
     </main>
