@@ -8,7 +8,7 @@ import * as dateUtils from '@/lib/date';
 interface CalendarProps {
   streakDays?: number[];
   habitEntries: HabitMap;
-  onSelectDate: (date: string | null) => void;
+  onSelectDate: (date: string) => void;
 }
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'] as const;

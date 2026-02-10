@@ -2,12 +2,41 @@
 
 import Calendar from '@/app/components/Calendar';
 import HabitTracker from '@/app/components/HabitTracker';
-import { act, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { studyTopic, Habit, HabitMap} from '@/lib/definitions';
+import * as dateUtils from '@/lib/date';
 
 export default function Page() {
-  const [activeDate, setActiveDate] = useState<string | null>(null);
+  const [activeDate, setActiveDate] = useState<string>(dateUtils.convertDateToString(new Date()));
   const [habitEntries, setHabitEntries] = useState<HabitMap>({});
+
+  useEffect(() => {
+    const savedHabitEntries = localStorage.getItem('habitEntries');
+    
+    if (!savedHabitEntries){
+      return;
+    }
+
+    try {
+      const parsedHabitEntries = JSON.parse(savedHabitEntries);
+      if (
+        typeof parsedHabitEntries !== 'object' ||
+        parsedHabitEntries === null ||
+        Array.isArray(parsedHabitEntries)
+      ){
+        throw Error('Invalid habitEntries shape');
+      }
+      setHabitEntries(parsedHabitEntries);
+    } catch {
+      setHabitEntries({});
+      localStorage.setItem('habitEntries', '{}');
+    }
+
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('habitEntries', JSON.stringify(habitEntries))
+  }, [habitEntries]);
   
   function saveHabitEntry(date: string, topic: studyTopic, text: string){
     setHabitEntries((prevHabitEntries) => ({
