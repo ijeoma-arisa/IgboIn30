@@ -47,7 +47,7 @@ export default function HabitTracker({
         <h2 className="text-lg font-semibold">
           Habit Tracker
         </h2>
-        <h3>
+        <h3 className="font-bold">
           {dateFormatted}
         </h3>
       </header>
@@ -59,35 +59,38 @@ export default function HabitTracker({
             <p> What did you learn? </p>
             <p> (Gịnị ka ị mụtara?) </p>
           </div>
-        <select
-          value={selectedTopic}
-          onChange={(e) => setSelectedTopic(e.target.value)}
-          className=""
-        >
-          {studyOptions.map((studyOption) => {
-            return (
-              <option 
-                key={studyOption}
-                value={studyOption}
-                className="flex gap-2"
-              >
-                {studyOption}
-              </option>
-              );
-          })}
-        </select>
+
+        <div className="flex gap-2 mb-4">
+          <span className="font-bold">Topic:</span>
+          <select
+            value={selectedTopic}
+            onChange={(e) => setSelectedTopic(e.target.value)}
+            className="border border-gray-500 rounded-md"
+          >
+            {studyOptions.map((studyOption) => {
+              return (
+                <option 
+                  key={studyOption}
+                  value={studyOption}
+                >
+                  {studyOption}
+                </option>
+                );
+            })}
+          </select>
+        </div>
       </label>
 
       {/* Notes */}
       <textarea 
           value={textInput}
           onChange={(e) => setTextInput(e.target.value)}
-          className="w-full h-full p-2 resize-none border rounded-md border-gray-500"
+          className="w-full h-full p-2 resize-none border rounded-md border-gray-500 mb-2"
           placeholder="Enter Notes here"
       />
 
       {/* Save button */}
-      <div className="mt-2 flex justify-end">
+      <div className="mt-2 flex justify-center">
         <button className="border rounded-lg px-8 py-1 font-semibold bg-purple-200 border-indigo-700 transition hover:bg-purple-400 cursor-pointer">
           Save
         </button>

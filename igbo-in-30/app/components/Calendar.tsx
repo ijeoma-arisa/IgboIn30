@@ -6,7 +6,6 @@ import { HabitMap } from '@/lib/definitions';
 import * as dateUtils from '@/lib/date';
 
 interface CalendarProps {
-  // streakDays?: number[];
   habitEntries: HabitMap;
   onSelectDate: (date: string) => void;
 }
@@ -47,7 +46,6 @@ function generateCalenderCells(year: number, monthIndex: number){
 }
 
 export default function Calendar({ 
-  // streakDays = [],
   habitEntries,
   onSelectDate,
 }: CalendarProps) {
