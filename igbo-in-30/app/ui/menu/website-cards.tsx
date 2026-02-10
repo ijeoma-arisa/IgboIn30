@@ -1,6 +1,7 @@
 import { Website } from '@/lib/definitions';
 import { websites } from '@/lib/data/website-data';
 import Image from 'next/image';
+import Card from '@/app/ui/Card';
 
 export default async function WebsiteCardWrapper() {
   return (
@@ -27,7 +28,7 @@ export function WebsiteCard({
   imageSrc,
 }: Website ) {
   return (
-    <div className="rounded-xl bg-indigo-700 p-2 shadow-sm text-center hover:bg-purple-200 hover:text-indigo-700 ">
+    <Card className="bg-indigo-700 text-center hover:bg-purple-200 hover:text-indigo-700 transition">
       <div className="flex flex-col p-4">
         <div className="flex items-center">
 
@@ -50,11 +51,11 @@ export function WebsiteCard({
           <Image
             src={`/menu/websites/${imageSrc}`}
             alt={`${title} logo`}
-            className="object-fit"
+            className="object-fill"
             fill={true}
           />
         </a>
       </div>
-    </div>
+    </Card>
   );
 }

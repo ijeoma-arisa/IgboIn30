@@ -18,9 +18,9 @@ export default function MenuLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm text-black font-medium hover:bg-purple-200 hover:text-indigo-700 md:flex-none md:justify-start md:p-2 md:px-3',
+              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm text-black font-medium hover:bg-orange-100 hover:text-orange-700 md:flex-none md:justify-start md:p-2 md:px-3',
             {
-              'bg-purple-200 text-indigo-700': pathname === link.href,
+              'bg-orange-100 text-orange-700': pathname === link.href,
             },
           )}
           >

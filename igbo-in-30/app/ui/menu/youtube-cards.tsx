@@ -1,13 +1,14 @@
 import { Embedding } from '@/lib/definitions';
 import { youtubePlaylists} from '@/lib/data/youtube-lesson-data';
 import parse from 'html-react-parser';
+import Card from '@/app/ui/Card';
 
 export default async function YouTubeCardWrapper() {
   return (
     <>
       {youtubePlaylists.map(({name, embedText}) => {
         return (
-          <div key={name}>
+          <Card key={name}>
             <h2 
               className="text-indigo-700 mb-4 text-lg md:text-xl font-bold">
               {name}
@@ -16,7 +17,7 @@ export default async function YouTubeCardWrapper() {
               name={name}
               embedText={embedText}
             />
-          </div>
+          </Card>
         );
       })}
     </>
