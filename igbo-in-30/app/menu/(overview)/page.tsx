@@ -2,7 +2,7 @@
 
 import Calendar from '@/app/components/Calendar';
 import HabitTracker from '@/app/components/HabitTracker';
-import { useState } from 'react';
+import { act, useState } from 'react';
 import { studyTopic, Habit, HabitMap} from '@/lib/definitions';
 
 export default function Page() {
@@ -15,7 +15,6 @@ export default function Page() {
       [date]: { date, topic, text, updatedAt: Date.now()},
     }));
   }
-
   return (
     <main className="text-black">
       <h1 className="text-center mb-4 text-xl md:text-3xl font-bold">
@@ -33,21 +32,18 @@ export default function Page() {
 
         <div className="flex-1">
           {activeDate ? (
-            <HabitTracker />
-
-            // <HabitTracker
-            //   key={activeDate}
-            //   date={activeDate}
-            //   initialTopic={habitEntries[activeDate]?.topic ?? studyOptions[0]}
-            //   initialText={habitEntries[activeDate]?.text ?? ""}
-            // />
+            <HabitTracker
+              key={activeDate}
+              date={activeDate}
+              initialTopic={habitEntries[activeDate]?.topic}
+              initialText={habitEntries[activeDate]?.text}
+              onSave={saveHabitEntry}
+            />
           ) : (
             <div className="rounded-lg border border-dashed p-6 text-sm text-gray-500">
               Select a day to view/edit habits.
             </div>
-          )}
-          
-          
+          )}    
         </div>
       </div>
     </main>

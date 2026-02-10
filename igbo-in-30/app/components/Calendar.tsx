@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { HabitMap } from '@/lib/definitions';
+import * as dateUtils from '@/lib/date';
 
 interface CalendarProps {
   streakDays?: number[];
@@ -81,7 +82,7 @@ export default function Calendar({
         <button
           type="button"
           onClick={goToPrevMonth}
-          className="absolute left-0 rounded-md px-2 py-1 text-sm text-gray-600 transition-colors hover:bg-gray-100"
+          className="absolute left-0 rounded-md px-2 py-1 text-sm text-gray-600 transition-colors hover:bg-gray-100 cursor-pointer"
           aria-label="Previous month"
           >
           &#8249;
@@ -100,7 +101,7 @@ export default function Calendar({
           <button
             type="button"
             onClick={goToNextMonth}
-            className="rounded-md px-2 py-1 text-sm text-gray-600 transition-colors hover:bg-gray-100"
+            className="rounded-md px-2 py-1 text-sm text-gray-600 transition-colors hover:bg-gray-100 cursor-pointer"
             aria-label="Next month"
           >
             &#8250;
@@ -118,7 +119,7 @@ export default function Calendar({
         <button
           type="button"
           onClick={goToThisMonth}
-          className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700 transition-colors hover:bg-gray-200"
+          className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700 transition-colors hover:bg-gray-200 cursor-pointer"
           aria-label="Current Month"
         >
           Jump to Current Month
@@ -153,22 +154,19 @@ export default function Calendar({
           const isStreak = streakDays.includes(cell.dayNumber);
 
           const dateForCell = new Date(year, monthIndex, cell.dayNumber);
-          const ariaLabel = dateForCell.toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          });
+
+          const ariaLabel = dateUtils.convertDateToAriaLabel(dateForCell);
+          const dateString = dateUtils.convertDateToString(dateForCell);
 
           return (
             <button 
               key={`day-${cell.dayNumber}`}
-              // onClick={() => onSelectDate()}
+              onClick={() => onSelectDate(dateString)}
               tabIndex={0}
               aria-label={ariaLabel}
               className = {clsx(
                 'relative flex h-9 items-center justify-center rounded-md border text-sm transition-colors',
-                'hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500',
+                'hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer',
                 isToday
                   ? 'border-blue-600 bg-blue-50 font-semibold text-blue-700' // Make Today cell blue
                   : isStreak
