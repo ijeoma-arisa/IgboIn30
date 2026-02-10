@@ -53,7 +53,6 @@ export default function Page() {
       <div className="flex w-full">
         <div className="w-[360px] shrink-0">
           <Calendar 
-            streakDays={[2, 4, 6, 10, 11]}
             habitEntries={habitEntries}
             onSelectDate={setActiveDate}
           />

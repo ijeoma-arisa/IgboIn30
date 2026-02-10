@@ -6,7 +6,7 @@ import { HabitMap } from '@/lib/definitions';
 import * as dateUtils from '@/lib/date';
 
 interface CalendarProps {
-  streakDays?: number[];
+  // streakDays?: number[];
   habitEntries: HabitMap;
   onSelectDate: (date: string) => void;
 }
@@ -47,7 +47,7 @@ function generateCalenderCells(year: number, monthIndex: number){
 }
 
 export default function Calendar({ 
-  streakDays = [],
+  // streakDays = [],
   habitEntries,
   onSelectDate,
 }: CalendarProps) {
@@ -151,12 +151,13 @@ export default function Calendar({
           }
           
           const isToday = isViewingThisMonth && cell.dayNumber === today.getDate();
-          const isStreak = streakDays.includes(cell.dayNumber);
-
+          
           const dateForCell = new Date(year, monthIndex, cell.dayNumber);
-
+          
           const ariaLabel = dateUtils.convertDateToAriaLabel(dateForCell);
           const dateString = dateUtils.convertDateToString(dateForCell);
+
+          const isStreak = dateString in habitEntries;
 
           return (
             <button 
@@ -182,11 +183,6 @@ export default function Calendar({
           );
         })}
       </div>
-      
-      {/* Streaks */}
-      <p className="text-sm text-gray-500 mt-2">
-        Streak days: {streakDays.join(', ') || 'none yet'}
-      </p>
     </section>
   );
 }
