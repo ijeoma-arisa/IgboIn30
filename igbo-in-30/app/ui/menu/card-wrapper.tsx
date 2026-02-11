@@ -1,12 +1,15 @@
 import { Embedding } from '@/lib/definitions';
-import { youtubePlaylists} from '@/lib/data/youtube-lesson-data';
 import parse from 'html-react-parser';
 import Card from '@/app/ui/Card';
 
-export default async function YouTubeCardWrapper() {
+type EmbeddingCardWrapperProps = {
+  embeddings: Embedding[];
+} 
+
+export default async function EmbeddingCardWrapper({embeddings}: EmbeddingCardWrapperProps) {
   return (
     <>
-      {youtubePlaylists.map(({name, embedText}: Embedding) => {
+      {embeddings.map(({name, embedText}) => {
         return (
           <Card key={name}>
             <h2 

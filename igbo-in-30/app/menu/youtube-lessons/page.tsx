@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import YouTubeCardWrapper from '@/app/ui/menu/youtube-cards';
+import EmbeddingCardWrapper from '@/app/ui/menu/card-wrapper';
+import { youtubePlaylists } from '@/lib/data/youtube-lesson-data';
 
 export const metadata: Metadata = {
   title: 'YouTube Lessons',
@@ -12,7 +13,7 @@ export default function Page() {
         YouTube Lessons
       </h1>
       <div className="flex flex-col items-center text-center gap-6">
-        <YouTubeCardWrapper />
+        <EmbeddingCardWrapper embeddings={youtubePlaylists}/>
       </div>
     </main>
   ); 
