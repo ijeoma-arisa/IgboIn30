@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import EmbeddingCardWrapper from '@/app/ui/menu/embedding-card-wrapper';
 import { youtubePlaylists } from '@/lib/data/youtube-lesson-data';
+import { Suspense } from 'react';
+import { CardsSkeleton } from '@/app/ui/skeletons';
 
 export const metadata: Metadata = {
   title: 'YouTube Lessons',
