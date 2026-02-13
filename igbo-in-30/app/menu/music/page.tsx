@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import MusicPlaylistWrapper from '@/app/ui/menu/music-cards';
+import { musicPlaylists } from '@/lib/data/music-data';
+import EmbeddingCardWrapper from '@/app/ui/menu/embedding-card-wrapper';
 
 export const metadata: Metadata = {
   title: 'Music',
@@ -9,10 +10,10 @@ export default function Page() {
   return (
     <main>
       <h1 className="text-black text-center mb-4 text-xl md:text-3xl font-bold">
-        Music
+        {metadata?.title?.toString()}
       </h1>
       <div className="flex flex-col items-center gap-6 text-center">
-        <MusicPlaylistWrapper />
+        <EmbeddingCardWrapper embeddings={musicPlaylists} />
       </div>
     </main>
   );
