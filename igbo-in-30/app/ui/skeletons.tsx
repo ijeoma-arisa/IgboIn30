@@ -1,29 +1,31 @@
 const shimmer =
   'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
 
-export function CardSkeleton() {
+export function EmbeddingPageSkeleton({quantity = 1}: {quantity?: number}){
   return (
-    <div
-      className={`${shimmer} relative overflow-hidden rounded-xl bg-gray-100 p-2 shadow-sm`}
-    >
-      <div className="flex p-4">
-        <div className="h-5 w-5 rounded-md bg-gray-200" />
-        <div className="ml-2 h-6 w-16 rounded-md bg-gray-200 text-sm font-medium" />
+    <div className="flex flex-col items-center">
+        <div className={`${shimmer} relative overflow-hidden rounded-md mb-4 h-8 w-60 bg-gray-100 p-2 shadow-sm`} />
+
+        <div className="flex flex-col items-center gap-6">
+            {Array.from({ length: quantity }).map((_, i) => 
+              <EmbeddingCardSkeleton key={i}/>
+            )
+          }
+        </div>
       </div>
-      <div className="flex items-center justify-center truncate rounded-xl bg-white px-4 py-8">
-        <div className="h-7 w-20 rounded-md bg-gray-200" />
-      </div>
-    </div>
-  );
+    );
+
 }
 
-export function CardsSkeleton() {
+export function EmbeddingCardSkeleton() {
   return (
-    <>
-      <CardSkeleton />
-      <CardSkeleton />
-      <CardSkeleton />
-      <CardSkeleton />
-    </>
-  )
+    <div
+      className={`${shimmer} relative overflow-hidden rounded-md bg-gray-100 p-2 shadow-sm w-156`}
+    >
+      <div className="flex flex-col items-center rounded-md p-4">
+        <div className="h-7 w-84 mb-4 rounded-md bg-gray-200" />
+        <div className="h-80 w-144 rounded-md bg-gray-200" />
+      </div>
+  </div>
+  );
 }

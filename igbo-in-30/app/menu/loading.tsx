@@ -1,3 +1,6 @@
+import { EmbeddingPageSkeleton } from '@/app/ui/skeletons';
+
 export default function Loading() {
-  return <div className="text-black">Loading...</div>;
+  return <EmbeddingPageSkeleton quantity={5}/>;
+  // return <div className="text-black">Loading...</div>;
 }
