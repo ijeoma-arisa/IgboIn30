@@ -1,5 +1,5 @@
 const shimmer =
-  'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
+  "before:content-[''] before:absolute before:inset-0 before:animate-[shimmer_2s_linear_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:w-[200%]";
 
 export function EmbeddingPageSkeleton({quantity = 1}: {quantity?: number}){
   return (

@@ -12,7 +12,7 @@ function delay(ms: number) {
 }
 
 export default async function EmbeddingCardWrapper({embeddings}: EmbeddingCardWrapperProps) {
-  await delay(1000);
+  await delay(5000);
 
   return (
     <>
