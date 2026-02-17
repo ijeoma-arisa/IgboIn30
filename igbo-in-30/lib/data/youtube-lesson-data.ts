@@ -1,4 +1,6 @@
-export const youtubePlaylists = [
+import { Embedding } from '@/lib/definitions';
+
+export const youtubePlaylists: Embedding[] = [
   {
     name: 'Igbo Learning Resources',
     embedText: '<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=Pm_1aTkjAKCeOjFi&amp;list=PLIcprcNO7gwEoev6mBMHrvrCDxtZL-jBH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
@@ -16,3 +18,5 @@ export const youtubePlaylists = [
     embedText: '<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=FMckUREwVFaIhAQH&amp;list=PLIcprcNO7gwFi9odyXPajALBYtM1OsQTT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
   },
 ];
+
+export const numYoutubePlaylists = youtubePlaylists.length;

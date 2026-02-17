@@ -14,7 +14,7 @@ export default function Page() {
       <h2 className="text-indigo-700 mb-4 text-lg md:text-xl font-bold">
         Instagram
       </h2>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid lg:grid-cols-3 gap-4">
           <InstagramCardWrapper />
       </div>
     </main>

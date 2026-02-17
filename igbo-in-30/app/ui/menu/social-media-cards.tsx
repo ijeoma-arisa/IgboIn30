@@ -3,7 +3,6 @@ import { instagramPages } from '@/lib/data/social-media-data';
 import DOMPurify from 'isomorphic-dompurify';
 import parse from 'html-react-parser';
 
-
 export default async function InstagramCardWrapper() {
   return (
     <>
@@ -20,7 +19,6 @@ export default async function InstagramCardWrapper() {
   );
 };
 
-
 export function InstagramCard({
   name, 
   embedText,
@@ -33,8 +31,8 @@ export function InstagramCard({
   const cleanEmbedText = DOMPurify.sanitize(embedText);
 
   return (
-    <>
+    <div className="max-w-sm">
       {parse(cleanEmbedText)}
-    </>
+    </div>
   );
 }

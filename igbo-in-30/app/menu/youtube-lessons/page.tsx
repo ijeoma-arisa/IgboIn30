@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
-import YouTubeCardWrapper from '@/app/ui/menu/youtube-cards';
+import EmbeddingCardWrapper from '@/app/ui/menu/embedding-card-wrapper';
+import { youtubePlaylists } from '@/lib/data/youtube-lesson-data';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'YouTube Lessons',
@@ -9,10 +11,10 @@ export default function Page() {
   return (
     <main>
       <h1 className="text-black text-center mb-4 text-xl md:text-3xl font-bold">
-        YouTube Lessons
+        {metadata?.title?.toString()}
       </h1>
       <div className="flex flex-col items-center text-center gap-6">
-        <YouTubeCardWrapper />
+        <EmbeddingCardWrapper embeddings={youtubePlaylists}/>
       </div>
     </main>
   ); 
