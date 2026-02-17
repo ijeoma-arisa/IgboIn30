@@ -3,7 +3,13 @@ import { websites } from '@/lib/data/website-data';
 import Image from 'next/image';
 import Card from '@/app/ui/Card';
 
+// Simulate delay
+function delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 export default async function WebsiteCardWrapper() {
+  await delay(2000);
   return (
     <>
       {websites.map((website) => {
