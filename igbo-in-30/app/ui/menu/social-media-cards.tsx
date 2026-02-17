@@ -3,14 +3,7 @@ import { instagramPages } from '@/lib/data/social-media-data';
 import DOMPurify from 'isomorphic-dompurify';
 import parse from 'html-react-parser';
 
-// Simulate delay
-function delay(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
-
 export default async function InstagramCardWrapper() {
-  await delay(2000);
-  
   return (
     <>
       {instagramPages.map((instagramPage) => {

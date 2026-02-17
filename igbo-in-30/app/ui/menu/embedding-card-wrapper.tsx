@@ -6,14 +6,7 @@ type EmbeddingCardWrapperProps = {
   embeddings: Embedding[];
 } 
 
-// Simulate delay
-function delay(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
-
 export default async function EmbeddingCardWrapper({embeddings}: EmbeddingCardWrapperProps) {
-  await delay(2000);
-
   return (
     <>
       {embeddings.map(({name, embedText}) => {
