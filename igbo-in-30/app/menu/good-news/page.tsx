@@ -12,18 +12,18 @@ export default function Page(){
         {metadata.title?.toString()}
       </h1>
       <div className="flex flex-col items-center gap-6 text-black">
-        <Card className="w-3/4 min-h-20 sm:w-full justify-center text-center">
+        <Card className="w-3/4 min-h-20 sm:w-full justify-center text-center bg-white">
           <p className="font-semibold">You're already on your way to learning Igbo!</p>
           <p>👏 Kụọ onwe gị aka (Clap for yourself) 👏 </p>
         </Card>
 
-        <Card className="w-3/4 min-h-20 sm:w-full justify-center text-center">
+        <Card className="w-3/4 min-h-20 sm:w-full justify-center text-center bg-white">
           <p>I was able to teach myself Igbo by practicing <span className="font-semibold">for 30 minutes a day</span>!</p>
           <p className="font-bold">But I couldn't have done it without God</p>
         </Card>
 
         <h1 className="font-bold text-xl">The Gospel</h1>
-        <Card className="w-full min-h-20 justify-center">
+        <Card className="w-full min-h-20 justify-center bg-white">
           <p>🔸 God created us to be in relationship with Him and each other</p>
           <p>🔸 <span className="font-bold"> Bad News: </span> As humans, we constantly do bad things that distance us from God</p>
           <p>🔸 <span className="font-bold"> Good News: </span> God decided to restore our relationship with Him because He loves us: </p>
@@ -35,7 +35,7 @@ export default function Page(){
           <p>🔸 Jesus' sacrifice allows us to experience eternal life with God in spite of our imperfections</p>
         </Card>
 
-        <Card className="w-full min-h-20 justify-center items-center">
+        <Card className="w-full min-h-20 justify-center items-center bg-white">
 
           <h1 className="font-bold text-xl mt-4"> 
             Jesus Christ gave us the gift of salvation from our sins.
@@ -44,14 +44,13 @@ export default function Page(){
           <h1 className="font-bold text-xl"> 
               It is up to us to accept or reject this gift.
           </h1>
-
         </Card>
 
       <h1 className="font-bold text-xl mt-4">
         A Prayer to Accept Jesus Christ as Lord and Savior:
       </h1>
      
-      <Card className="w-full min-h-20 justify-center pl-6">
+      <Card className="w-full min-h-20 justify-center pl-6 bg-white">
         <p className="font-bold italic text-center mt-2">
           "If you declare with your mouth, “Jesus is Lord,” and believe in your heart that God raised him from the dead, you will be saved." (Romans 10:9 NIV)
         </p>
@@ -84,7 +83,7 @@ export default function Page(){
     
       </Card>
 
-      <Card className="w-full min-h-20 justify-center pl-6 items-center font-bold">
+      <Card className="w-full min-h-20 justify-center pl-6 items-center font-bold bg-white">
         Welcome Child of God! I'm so glad you're here
       </Card>
 

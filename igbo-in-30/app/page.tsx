@@ -46,7 +46,7 @@ export default function Home() {
           <Link
             key={homeLink.name}
             href={homeLink.href}
-            className="text-white font-bold bg-emerald-700 px-16 py-2 text-2xl rounded-md transition hover:scale-120 hover:text-emerald-50"
+            className="text-white font-bold bg-orange-600 px-16 py-2 text-2xl rounded-md transition hover:scale-120"
           >
             <p>Start Today!</p>
             <p>(Bido taa!) </p>

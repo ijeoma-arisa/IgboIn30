@@ -11,9 +11,9 @@ export default async function EmbeddingCardWrapper({embeddings}: EmbeddingCardWr
     <>
       {embeddings.map(({name, embedText}) => {
         return (
-          <Card key={name}>
+          <Card key={name} className="bg-orange-300 border-orange-400">
             <h2 
-              className="text-indigo-700 mb-4 text-lg md:text-xl font-bold"
+              className="text-gray-700 mb-4 text-lg md:text-xl font-bold"
             >
               {name}
             </h2>
