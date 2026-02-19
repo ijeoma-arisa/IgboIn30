@@ -19,10 +19,14 @@ export default function Layout({ children }: { children: React.ReactNode}) {
       <TopNavBar />
 
       <div className="flex h-screen flex-col md:flex-row md:overflow-hidden bg-white">
-        <div className="w-full flex-none md:w-64 mt-4">
+        <div className="h-full w-full flex-none md:w-64">
           <MenuBar />
+          
+          <div className="hidden h-auto w-full grow rounded-md bg-gray-700 md:block" />
+
         </div>
 
+              
         <div className="grow p-6 md:overflow-y-auto md:p-12">
           {children}
         </div>
