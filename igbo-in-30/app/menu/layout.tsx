@@ -16,28 +16,10 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode}) {
   return (
     <>
-      {/* Top Nav Bar */}
-      <div className="bg-orange-400 md:h-28">
-        <TopNavBar />
-      </div>
+      <TopNavBar />
 
-      {/* Side Nav Bar */}
       <div className="flex h-screen flex-col md:flex-row md:overflow-hidden bg-white">
-        <div className="sticky w-full flex-none md:w-64">
-          {/* Logo */}
-          <Link
-            className="relative mb-2 flex h-20 items-end justify-start p-4 md:h-40"
-            href="/"
-          >
-            <Image
-              src="/igboin30-logo.svg"
-              alt="igboin30 logo"
-              fill
-              className="object-cover"
-              priority
-            />
-          </Link>
-          {/* Menu  */}
+        <div className="w-full flex-none md:w-64 mt-4">
           <MenuBar />
         </div>
 
