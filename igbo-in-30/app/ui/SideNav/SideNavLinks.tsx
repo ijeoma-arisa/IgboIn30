@@ -11,7 +11,6 @@ import {
   TvIcon,
   MusicalNoteIcon,
   CameraIcon,
-  HeartIcon,
   GiftIcon,
 } from '@heroicons/react/24/solid';
 
@@ -27,7 +26,6 @@ const iconMap: Record<string, typeof HomeIcon> = {
   'Tv': TvIcon,
   'MusicalNote': MusicalNoteIcon,
   'Camera': CameraIcon,
-  'Heart': HeartIcon,
   'Gift': GiftIcon,
   'GlobeAlt': GlobeAltIcon,
   'QuestionMarkCircle': QuestionMarkCircleIcon,
@@ -47,7 +45,7 @@ export default function SideNavLinks({ links }: { links: NavLink[]}) {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm text-black font-medium hover:bg-orange-100 hover:text-orange-700 md:flex-none md:justify-start md:p-2 md:px-3 transition',
+              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-lg text-black font-medium hover:bg-orange-100 hover:text-orange-700 md:flex-none md:justify-start md:p-2 md:px-3 transition',
             {
               'bg-orange-100 text-orange-700': pathname === link.href,
             },

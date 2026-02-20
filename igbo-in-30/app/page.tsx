@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { regularSideNavLinks } from '@/lib/data/navigation';
 
-const [homeLink, goodNewsLink, ...studyLinks] = regularSideNavLinks; 
+const [homeLink, ...studyLinks] = regularSideNavLinks; 
 
 export default function Home() {
   return (
