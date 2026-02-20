@@ -2,7 +2,7 @@ import Card from '@/app/ui/Card';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function TopNavBar() {
+export default function TopNav() {
   return (
     <div className="flex w-full items-center justify-between p-4 bg-orange-400">
       <Link

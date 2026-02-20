@@ -34,7 +34,7 @@ const iconMap: Record<string, typeof HomeIcon> = {
   'InformationCircle': InformationCircleIcon,
 }
 
-export default function MenuLinks({ links }: { links: NavLink[]}) {
+export default function SideNavLinks({ links }: { links: NavLink[]}) {
   const pathname = usePathname();
   
   return (
@@ -59,11 +59,5 @@ export default function MenuLinks({ links }: { links: NavLink[]}) {
         );
       })}
     </>
-    // <>
-    //   {links.map((link) => generateMenuLink(link))}
-
-    //   {specialLinks.map((link) => generateMenuLink(link))}
-      
-    // </>
   );
 }

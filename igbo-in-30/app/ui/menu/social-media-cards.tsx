@@ -1,17 +1,17 @@
 import { Embedding } from '@/lib/definitions';
-import { instagramPages } from '@/lib/data/social-media-data';
+import { instagramLinks } from '@/lib/data/links/social-media';
 import DOMPurify from 'isomorphic-dompurify';
 import parse from 'html-react-parser';
 
 export default async function InstagramCardWrapper() {
   return (
     <>
-      {instagramPages.map((instagramPage) => {
+      {instagramLinks.map((instagramLink) => {
         return (
           <InstagramCard
-          key={instagramPage.name}
-          name={instagramPage.name}
-          embedText={instagramPage.embedText}
+          key={instagramLink.name}
+          name={instagramLink.name}
+          embedText={instagramLink.embedText}
           />
         );
       })}

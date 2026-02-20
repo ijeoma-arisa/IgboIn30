@@ -1,9 +1,6 @@
-import SideNavBar from '@/app/ui/side-navbar';
-import TopNavBar from '@/app/ui/top-navbar';
-
 import { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
+import SideNav from '@/app/ui/SideNav/SideNav';
+import TopNav from '@/app/ui/TopNav/TopNav';
 
 export const metadata: Metadata = {
   title: {
@@ -16,11 +13,11 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode}) {
   return (
     <>
-      <TopNavBar />
+      <TopNav />
 
       <div className="flex h-screen flex-col md:flex-row md:overflow-hidden bg-white">
         <div className="h-full w-full flex-none md:w-64">
-          <SideNavBar />
+          <SideNav />
           
           <div className="hidden h-auto w-full grow rounded-md bg-gray-700 md:block" />
 

@@ -1,4 +1,4 @@
-export const websites = [
+export const websiteLinks = [
   {
     title: 'Learn Igbo Now', 
     description:'Igbo Learning Materials, Resources & Community for All Ages.', 

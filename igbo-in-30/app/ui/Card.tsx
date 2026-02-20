@@ -3,7 +3,7 @@ type CardProps = {
   className?: string
 }
 
-export default function Card({ children, className = " "}: CardProps){
+export default function Card({ children, className}: CardProps){
   return (
     <div className={`
       flex flex-col 
@@ -11,7 +11,7 @@ export default function Card({ children, className = " "}: CardProps){
       shadow-sm
       rounded-md
       p-6
-      ${className}
+      ${className ?? ""}
       `}
       >
         {children}

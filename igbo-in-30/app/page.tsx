@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { links } from '@/lib/data/menu-links-data';
+import { regularSideNavLinks } from '@/lib/data/navigation';
 
-const [homeLink, goodNewsLink, ...studyLinks] = links; 
+const [homeLink, goodNewsLink, ...studyLinks] = regularSideNavLinks; 
 
 export default function Home() {
   return (
@@ -35,7 +35,7 @@ export default function Home() {
                     href={studyLink.href}
                     className="flex flex-col items-center justify-center text-md transition hover:scale-120"
                     >
-                    <LinkIcon className={`w-16 ${studyLink.textColor}`} />
+                    {/* <LinkIcon className={`w-16 bg-black`} /> */}
                     <p className="text-black font-semibold">{studyLink.name}</p>
                   </Link>
                 );

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import EmbeddingCardWrapper from '@/app/ui/menu/embedding-card-wrapper';
-import { videoPlaylists} from '@/lib/data/video-data';
+import EmbeddingCard from '@/app/components/embeddings/EmbeddingCards';
+import { videoPlaylists} from '@/lib/data/playlists/video';
 
 export const metadata: Metadata = {
   title: 'Videos',
@@ -13,7 +13,7 @@ export default function Page() {
         {metadata?.title?.toString()}
       </h1>
       <div className="flex flex-col items-center text-center gap-6">
-        <EmbeddingCardWrapper embeddings={videoPlaylists}/>
+        <EmbeddingCard embeddings={videoPlaylists}/>
       </div>
     </main>
   ); 

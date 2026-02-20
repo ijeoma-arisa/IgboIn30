@@ -1,6 +1,6 @@
 'use client';
 
-import { studyLinks, studyOptions } from '@/lib/data/menu-links-data';
+import { studyLinks, studyOptions } from '@/lib/data/navigation';
 import { useState } from 'react';
 import { studyTopic, Habit, HabitMap } from '@/lib/definitions';
 import * as dateUtils from '@/lib/date';

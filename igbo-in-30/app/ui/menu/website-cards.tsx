@@ -1,19 +1,19 @@
 import { Website } from '@/lib/definitions';
-import { websites } from '@/lib/data/website-data';
+import { websiteLinks } from '@/lib/data/links/websites';
 import Image from 'next/image';
 import Card from '@/app/ui/Card';
 
 export default async function WebsiteCardWrapper() {
   return (
     <>
-      {websites.map((website) => {
+      {websiteLinks.map((websiteLink) => {
         return (
           <WebsiteCard
-            key={website.link}
-            title={website.title} 
-            description={website.description} 
-            link={website.link} 
-            imageSrc={website.imageSrc}
+            key={websiteLink.link}
+            title={websiteLink.title} 
+            description={websiteLink.description} 
+            link={websiteLink.link} 
+            imageSrc={websiteLink.imageSrc}
           />
         );
       })}

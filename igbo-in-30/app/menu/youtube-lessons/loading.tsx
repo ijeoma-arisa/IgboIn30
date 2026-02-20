@@ -1,6 +1,6 @@
 import { EmbeddingPageSkeleton } from '@/app/ui/skeletons';
-import { numYoutubePlaylists } from '@/lib/data/youtube-lesson-data';
+import { numYoutubeLessonsPlaylists } from '@/lib/data/playlists/youtube-lessons';
 
 export default function Loading() {
-  return <EmbeddingPageSkeleton quantity={numYoutubePlaylists}/>;
+  return <EmbeddingPageSkeleton quantity={numYoutubeLessonsPlaylists}/>;
 }
