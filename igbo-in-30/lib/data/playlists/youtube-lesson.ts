@@ -1,6 +1,6 @@
 import { Embedding } from '@/lib/definitions';
 
-export const youtubeLessonsPlaylists: Embedding[] = [
+export const youtubeLessonPlaylists: Embedding[] = [
   {
     name: 'Igbo Learning Resources',
     embedText: '<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=Pm_1aTkjAKCeOjFi&amp;list=PLIcprcNO7gwEoev6mBMHrvrCDxtZL-jBH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
@@ -19,4 +19,4 @@ export const youtubeLessonsPlaylists: Embedding[] = [
   },
 ];
 
-export const numYoutubeLessonsPlaylists = youtubeLessonsPlaylists.length;
+export const numYoutubeLessons = youtubeLessonPlaylists.length;

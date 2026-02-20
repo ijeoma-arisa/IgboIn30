@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import EmbeddingCard from '@/app/components/embeddings/EmbeddingCards';
-import { youtubeLessonsPlaylists } from '@/lib/data/playlists/youtube-lessons';
+import { youtubeLessonPlaylists } from '@/lib/data/playlists/youtube-lesson';
 import { Suspense } from 'react';
 import TopicButtons from '@/app/components/TopicButtons';
 
@@ -22,7 +22,7 @@ export default function Page() {
         <TopicButtons />
       </div>
       <div className="flex flex-col items-center text-center gap-6">
-        <EmbeddingCard embeddings={youtubeLessonsPlaylists}/>
+        <EmbeddingCard embeddings={youtubeLessonPlaylists}/>
       </div>
     </main>
   ); 

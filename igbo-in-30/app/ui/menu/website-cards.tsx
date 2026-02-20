@@ -1,5 +1,5 @@
 import { Website } from '@/lib/definitions';
-import { websiteLinks } from '@/lib/data/links/websites';
+import { websiteLinks } from '@/lib/data/links/website';
 import Image from 'next/image';
 import Card from '@/app/ui/Card';
 
