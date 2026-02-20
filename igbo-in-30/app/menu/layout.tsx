@@ -1,5 +1,5 @@
-import MenuBar from '@/app/ui/menu/menu-bar';
-import TopNavBar from '@/app/ui/menu/top-navbar';
+import SideNavBar from '@/app/ui/side-navbar';
+import TopNavBar from '@/app/ui/top-navbar';
 
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode}) {
 
       <div className="flex h-screen flex-col md:flex-row md:overflow-hidden bg-white">
         <div className="h-full w-full flex-none md:w-64">
-          <MenuBar />
+          <SideNavBar />
           
           <div className="hidden h-auto w-full grow rounded-md bg-gray-700 md:block" />
 

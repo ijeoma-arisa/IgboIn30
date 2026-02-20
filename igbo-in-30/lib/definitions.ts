@@ -1,5 +1,3 @@
-import { studyOptions } from '@/lib/data/menu-links-data';
-
 export type Website = {
   title: string;
   description: string;
@@ -12,7 +10,15 @@ export type Embedding = {
   embedText: string;
 }
 
-export type studyTopic = typeof studyOptions[number];
+export type studyTopic = {
+  name: string;
+}
+
+export type NavLink = {
+  name: string;
+  href: string;
+  icon: string;
+};
 
 export type Habit = {
   date: string,
